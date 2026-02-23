@@ -2,10 +2,6 @@ import { useState } from 'react'
 import { Search, Bell, ChevronDown, X } from 'lucide-react'
 import { recentNotifications } from '@/data/mockData'
 
-interface TopBarProps {
-  title?: string
-}
-
 type NotificationItem = typeof recentNotifications[number]
 
 const notifIcon = (type: string) => {
@@ -18,7 +14,7 @@ const notifIcon = (type: string) => {
   }
 }
 
-export function TopBar({ title }: TopBarProps) {
+export function TopBar() {
   const [showNotifications, setShowNotifications] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
   const [notifications, setNotifications] = useState<NotificationItem[]>(recentNotifications)
@@ -30,7 +26,7 @@ export function TopBar({ title }: TopBarProps) {
 
   return (
     <header className="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-6 gap-4 flex-shrink-0">
-      {/* Left: title or search */}
+      {/* Left: search */}
       <div className="relative flex-1 max-w-md">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
         <input
